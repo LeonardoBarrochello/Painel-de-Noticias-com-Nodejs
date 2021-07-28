@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link href="/public/style.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
 
-    <header class="header">
-        <div class="center">
-            <div class="logo">
-                <h2><span>Danki</span>News</h2>
-            </div>
-            <div class="form-box">
-                <form action="">
-                
-                    <i class="fas fa-search"></i>
-                    <input name="search" type="text" placeholder="Buscar"  />
-                </form>
-            </div>
-        </div>
-    </header>
-
+    <%- include('partials/header.html') %> 
     <section class="news-rate">
         <div class="center">
             <div class="img-news">
                 <div class="overlay-news"></div>
                     <div class="news-title">
                         <h2>Quer fugir das praias de verão?</h2>
-                        <p>Veja os melhores destinos para uma viagem a dois, com seu grupo ou até mesmo sozinho. Aproveite o calor longe das praias, curta lagos, cachoeiras e muito mais nesses destinos incríveis.</p>
+                        <p>Veja os melhores destinos para uma viagem a dois, com seu grupo ou até mesmo sozinho. Aproveite o calor longe das praias.</p>
                     </div>
-                    <img  src="/public/images/lakeimage2.jpg" />
+                    <img  src="/public/src/images/lakeimage2.jpg" />
             </div>
         </div>
     </section>
@@ -48,33 +20,72 @@
             <div class="center">
                 <div class="ultimas">
                     <div class="box-ultimas-single">
-                        <img src="/public/images/IMAGEM2.png" />
+                        <img src="/public/src/images/IMAGEM2.png" />
                         <div class="conteudo-noticia-single">
                             
                             <h3>Natureza e Geral</h3>
                             <h2>Como encarar o surf mesmo no frio</h2>
                             <p>A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.</p>
+                            <a href="/encarar-o-surf">Saiba mais</a>
                         </div>
                         
                     </div>
                     <div class="box-ultimas-single">
-                        <img src="/public/images/IMAGEM2.png" />
+                        <img src="/public/src/images/IMAGEM2.png" />
                         <div class="conteudo-noticia-single">
                             <h3>Natureza e Geral</h3>
                             <h2>Como encarar o surf mesmo no frio</h2>
                             <p>A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.</p>
-
+                            <a href="/encarar-o-surf">Saiba mais</a>
                         </div>
                         
                     </div>
                 </div>
                 <div class="mais-lidas">
                     <h3>Mais Lidas</h3>
+                    <div class="mais-lidas-noticias">
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/src/images/NATUREZA1.png" alt=" Natureza">
+                            <div class="texto-noticia-single">
+                                <h4>Natureza</h4>
+                                <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                                <a href="/natureza">Saiba mais</a>
+                            </div>
+                        </div>
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/src/images/NATUREZA1.png" alt=" Natureza">
+                            <div class="texto-noticia-single">
+                                <h4>Natureza</h4>
+                                <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                                <a href="/natureza">Saiba mais</a>
+                            </div>
+                        </div>
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/src/images/NATUREZA1.png" alt=" Natureza">
+                            <div class="texto-noticia-single">
+                                <h4>Natureza</h4>
+                                <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                                <a href="/natureza">Saiba mais</a>
+                            </div>
+                        </div>
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/src/images/NATUREZA1.png" alt=" Natureza">
+                            <div class="texto-noticia-single">
+                                <h4>Natureza</h4>
+                                <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                                <a href="/natureza">Saiba mais</a>
+                            </div>
+                        </div>
+
+                        
+                    </div>
                 </div>
             </div>
         </div>
 
     </section>
+
+    <%- include('partials/footer.html') %> 
     
 </body>
 </html>
