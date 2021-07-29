@@ -97,6 +97,11 @@ section.news-rate > .center {
     bottom: 0;
     left: 0;
 }
+
+.news-title a{
+    text-decoration: none;
+    color : #fff;
+}
 .news-title h2{
     margin: 20px;
     font-size: 64px;
