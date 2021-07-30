@@ -37,11 +37,45 @@ app.get('/',(req,res) =>{
         })
         
     }else{
-        res.render("busca",{busca:req.query.search})
+        Posts.find({category:req.query.search}).exec(function(err,resposta){
+            resposta = resposta.map(function(val){
+                return{
+                    title:val.title,
+                    category:val.category,
+                    content:val.content,
+                    shortContent: val.content.substr(0,100),
+                    imagem:val.imagem,
+                    slug:val.slug,
+                }
+
+            })
+            res.render("busca",{busca:req.query.search,noticias:resposta})
+        })
+      
+      
     }
 })
+
+app.get('/create-notice',(req,res) =>{
+    res.render('create-notice')
+})
+app.post('/createNotice',(req,res) =>{
+    Posts.insertMany({
+        title: req.body.title,
+        category:req.body.category,
+        content:req.body.content,
+        imagem:req.body.imagem,
+        slug:req.body.slug,
+        author:req.body.author,
+        views:0
+    })
+    res.redirect('/')
+})
 app.get('/:slug',(req,res) =>{
-    res.render('single', {})
+    Posts.findOneAndUpdate({slug:req.params.slug},{$inc:{views:1}},{new:true},function(err,resposta){
+        console.log(resposta)
+        res.render('single', {noticias:resposta})
+    })
 })
 
 

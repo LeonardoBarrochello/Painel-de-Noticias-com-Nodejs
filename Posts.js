@@ -8,6 +8,8 @@ const postSchema =  new Schema({
     content:String,
     imagem:String,
     slug:String,
+    author:String,
+    views:Number
 
 },{collection:'post'})
 

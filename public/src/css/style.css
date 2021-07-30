@@ -30,21 +30,21 @@
 .logo{
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    width: 40%;
 }
 
-.form-box{
+.form-box-search{
     display: flex;
     justify-content: flex-end;
     width: 50%;
 }
 
-.form-box form {
+.form-box-search form {
     display: inline-block;
     position: relative;
 }
 
-.form-box i{
+.form-box-search i{
     cursor: pointer;
     color: white;
     position: absolute;
@@ -273,8 +273,8 @@ footer p{
         width: 100% !important;
         margin-bottom: 20px;
     }
-    .logo , .form-box{width: 100%; justify-content: center;}
-    .form-box{
+    .logo , .form-box-search{width: 100%; justify-content: center;}
+    .form-box-search-search{
         margin-bottom: 20px;
     }
     .news-title h2{
