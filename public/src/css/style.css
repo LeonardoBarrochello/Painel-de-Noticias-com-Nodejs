@@ -18,14 +18,73 @@
 .header > .center {
     align-items: center;
 }
+
+.header .fa-bars{
+    z-index: 999;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.header nav ul{
+    list-style: none;
+    transition: 0.8s;
+    width: 200px;   
+    opacity: 0;
+    text-align: center;
+    background: #ccc;
+    position: absolute;
+    height:0;
+    right: 0;
+    top: 68px;  
+    z-index: 99;
+    
+    
+}
+
+.header nav {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.header nav ul li a {
+    text-decoration: none;
+    color : #fff ;
+}
+
+.header ul li{
+    margin-top: 20px ;
+}
+.header nav ul li a:hover{
+    transition: .8s;
+    background: #fff;
+    color: #000;
+}
+ul.show {
+    height: 300px !important;
+    opacity: 1 !important;
+}
+.fa-times{
+    cursor: pointer;
+    font-size: 30px;
+    display: none !important;
+}
+.fa-times.selected{
+    display: block !important;
+}
+.fa-bars.selected{
+    display:none
+}
 .center{
     padding: 0 2%;
     margin: 0 auto;
     display:flex;
+    justify-content: space-around;
     width: 100%;
     flex-wrap: wrap;
     max-width: 1280px;
 }
+
+
 
 .logo{
     display: flex;
@@ -269,6 +328,13 @@ footer p{
 
 @media screen and (max-width:768px)
 {   
+    .menu-desktop{
+        display: none !important;
+    }
+    .header{
+        height: auto;
+        padding-bottom:  20px;
+    }
     .noticia-single{
         width: 100% !important;
         margin-bottom: 20px;

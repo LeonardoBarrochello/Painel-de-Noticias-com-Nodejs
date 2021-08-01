@@ -32,14 +32,41 @@ app.get('/',(req,res) =>{
                 }
 
             })
-            res.render('home',{posts:posts})
+            Posts.find({}).sort({'views': -1}).limit(3).exec(function(err,postsTop){
 
+                // console.log(posts[0]);
+
+                 postsTop = postsTop.map(function(val){
+
+                         return {
+
+                             title: val.title,
+
+                             content: val.content,
+
+                             shortContent: val.content.substr(0,100),
+
+                             imagem: val.imagem,
+
+                             slug: val.slug,
+
+                             category: val.category,
+
+                             views: val.views
+
+                             
+
+                         }
+
+                 })
+                 res.render('home', {posts:posts,PostsTop:postsTop})
+             })
         })
         
     }else{
-        Posts.find({category:req.query.search}).exec(function(err,resposta){
+        Posts.find({title:{$regex:req.query.search,$options:'i'}}).exec(function(err,resposta){
             resposta = resposta.map(function(val){
-                return{
+                return{ 
                     title:val.title,
                     category:val.category,
                     content:val.content,
@@ -71,11 +98,51 @@ app.post('/createNotice',(req,res) =>{
     })
     res.redirect('/')
 })
-app.get('/:slug',(req,res) =>{
-    Posts.findOneAndUpdate({slug:req.params.slug},{$inc:{views:1}},{new:true},function(err,resposta){
-        console.log(resposta)
-        res.render('single', {noticias:resposta})
-    })
+
+
+app.get('/:slug', (req,res) => {
+    if(req.params.slug != 'favicon.ico'){
+        Posts.findOneAndUpdate({slug:req.params.slug},{$inc:{views:1}},{new:true},function(err,resposta){
+            if(resposta!=null){
+                Posts.find({}).sort({'views': -1}).limit(3).exec(function(err,postsTop){
+
+                    // console.log(posts[0]);
+    
+                     postsTop = postsTop.map(function(val){
+    
+                             return {
+    
+                                title: val.title,
+
+                                content: val.content,
+
+                                shortContent: val.content.substr(0,100),
+
+                                imagem: val.imagem,
+
+                                slug: val.slug,
+
+                                category: val.category,
+
+                                views: val.views
+    
+                                 
+    
+                             }
+    
+                     })
+                     res.render('single', {noticias:resposta,PostsTop:postsTop})
+                    
+    
+                 })
+
+
+            }
+
+
+        }  )
+    }
+    
 })
 
 
