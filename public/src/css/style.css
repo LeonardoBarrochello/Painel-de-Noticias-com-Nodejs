@@ -139,11 +139,12 @@ section.news-rate{
     margin-bottom: 20px;
 }
 section.news-rate > .center {
-    max-width: 960px;
+    max-width: 1080px;
 }
 .img-news{
     position: relative;
     width: 100%;
+    max-height: 600px;
 
     
 }
@@ -156,13 +157,55 @@ section.news-rate > .center {
     bottom: 0;
     left: 0;
 }
+.img-news .actions{
+    z-index: 2;
+    position: absolute;
+    right: 110px;
+    top: 70px;
+}
+.favorite{
+    position: relative;
+}
+.actions .favorite i {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* .favorite .favorited{
+    display: none;  
+} */
+.img-news .news-author{
+    position:absolute;
+    z-index: 1;
+    top: 62px;
+    display: flex;
+    align-items: center;
+    left: 107px;
+}
+.news-author .author-img-box{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/public/src/images/author.jpg');
+}
+.news-author h2{
+    font-size: 16px;
+    color: white;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+}
 
 .news-title a{
     text-decoration: none;
     color : #fff;
 }
 .news-title h2{
-    margin: 20px;
     font-size: 64px;
 }
 .news-title p{
@@ -171,6 +214,8 @@ section.news-rate > .center {
 .news-rate .img-news img {
     width: 100%;
     border-radius: 10px ;
+    height: 100%;
+    object-fit: contain;
 }
 
 .overlay-news{
@@ -226,9 +271,23 @@ section.outras-noticias h2{
     border-radius: 10px;
     width: 48%;
     margin-right: 1%;
+    position : relative;
     background-color: white;
     padding-bottom: 20px;
     height: auto;
+}
+.box-ultimas-single .favorite{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.box-ultimas-single .favorite a{
+    border: 0;
+    color: red;
+}
+
+.box-ultimas-single:not(.box-ultimas-single:first-child,.box-ultimas-single:nth-of-type(2)){
+    margin-top: 2%;
 }
 
 .box-ultimas-single img{
@@ -328,6 +387,24 @@ footer p{
 
 @media screen and (max-width:768px)
 {   
+
+    .actions{
+
+        top: 0px !important ;
+        right: 10px !important;
+    }
+    #speech-bubble{
+        left: -220px;
+        top: 80px;
+    }
+    #speech-bubble:before{
+        content: none;
+    }
+    .img-news .news-author{
+        position:absolute;
+        top: 20px;
+        left: 10px;
+    }
     .menu-desktop{
         display: none !important;
     }

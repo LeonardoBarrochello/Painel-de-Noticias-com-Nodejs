@@ -9,7 +9,8 @@ const postSchema =  new Schema({
     imagem:String,
     slug:String,
     author:String,
-    views:Number
+    views:Number,
+    favorite:Boolean
 
 },{collection:'post'})
 
@@ -18,3 +19,7 @@ var Posts = mongoose.model('Posts',postSchema)
 
 
 module.exports = Posts;
+
+
+
+
