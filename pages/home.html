@@ -25,7 +25,7 @@
                         <h2>Por : <%= posts[0].author %> </h2>
                     </div>
                     <div class="news-title">
-                        <a href=<%=posts[0].slug %> ><h2><%=posts[0].title %> </h2></a>
+                        <a href="/categories/<%=posts[0].category%>/<%=posts[0].slug %>" ><h2><%=posts[0].title %> </h2></a>
                         <%- posts[0].shortContent %>...
                     </div>
                     <img   src=<%= posts[0].imagem %> >
@@ -45,7 +45,7 @@
                             <div class="favorite">
                                 <% if(posts[i].favorite==true) {%> 
                                     <a href="/unfavorite/<%=posts[i].id%>">
-                                        <i class="fas fa-heart favorited"></i>    //quebrado
+                                        <i class="fas fa-heart favorited"></i>   
                                     </a>
                                 <% } else {%> 
                                     <a href="/favorite/<%=posts[i].id%>">
@@ -60,7 +60,7 @@
                                 <h3><%= posts[i].category %> </h3>
                                 <h2><%= posts[i].title %> </h2>
                                 <p><%- posts[i].shortContent %> </p>
-                                <a href="<%=posts[i].slug %> ">Saiba mais</a>
+                                <a href="/categories/<%=posts[i].category%>/<%=posts[i].slug %> ">Saiba mais</a>
                             </div>
                             
                         </div>
@@ -74,8 +74,9 @@
                                 <img src=<%= PostsTop[i].imagem %> alt=<%= PostsTop[i].category %>>
                                 <div class="texto-noticia-single">
                                     <h4><%= PostsTop[i].category %></h4>
-                                    <p><%- PostsTop[i].shortContent %>...</p> <span>(Views : <%=PostsTop[i].views%>)</span>
-                                    <a href="<%=PostsTop[i].slug %>">Saiba mais</a>
+                                    <p><%- PostsTop[i].shortContent %>...</p> 
+                                    <span>(Views :<%=PostsTop[i].views%>)</span>
+                                    <a href="/categories/<%=PostsTop[i].category%>/<%=PostsTop[i].slug %>">Saiba mais</a>
                                 </div>
                             </div>
                         <% } %> 
@@ -83,41 +84,52 @@
                         
                     </div>
                 </div>
-                <section class="favoritos"> 
-                    <h2>Favoritos</h2>
-                    <div class="center">
-                            <% for(let i = 1; i<favorites.length;i++) { %> 
-                                <div class="box-ultimas-single"></div>
-                                    <div class="favorite">
-                                        <% if(favorites[i].favorite==true) {%> 
-                                            <a href="/unfavorite/<%=favorites[i].id%>">
-                                                <i class="fas fa-heart favorited"></i>
-                                            </a>
-                                        <% } else {%> 
-                                            <a href="/favorite/<%=favorites[i].id%>">
-                                                <i class="far fa-heart unfavorite"></i>
-                                            </a>
-                                        <% } %> 
-                                    </div>
-                                    
-                                    <img src=<%= favorites[i].imagem %> />
-                                    <div class="conteudo-noticia-single">
-                                        
-                                        <h3><%= favorites[i].category %> </h3>
-                                        <h2><%= favorites[i].title %> </h2>
-                                        <p><%- favorites[i].shortContent %> </p>
-                                        <a href="<%=favorites[i].slug %> ">Saiba mais</a>
-                                    </div>
-                                    
-                                </div>
-                            <% } %> 
-                    </div>
-                </section>
+                
             </div>
             
 
         </div>
 
+    </section>
+
+    <section class="favoritos"> 
+        <h2>Favoritos</h2>
+        <div class="center">
+            <div class="favoritos-box">
+                <% for(let i = 0; i<favorites.length;i++) { %> 
+                    <div class="box-favorite-single">
+                            <div class="favorite-action">
+                                <% if(favorites[i].favorite==true) {%> 
+                                    <a href="/unfavorite/<%=favorites[i].id%>">
+                                        <i class="fas fa-heart favorited"></i>
+                                    </a>
+                                <% } else {%> 
+                                    <a href="/favorite/<%=favorites[i].id%>">
+                                        <i class="far fa-heart unfavorite"></i>
+                                    </a>
+                                <% } %> 
+                            </div>
+                            
+                            <img src=<%= favorites[i].imagem %> />
+                            <div class="favorite-single-content conteudo-noticia-single">
+                                
+                                <h3><%= favorites[i].category %> </h3>
+                                <h2><%= favorites[i].title %> </h2>
+                                <p><%- favorites[i].shortContent %> </p>
+                                <a href="/categories/<%=favorites[i].category%>/<%=favorites[i].slug %> ">Saiba mais</a>
+                            </div>
+                           
+                     </div>
+                     <% } %> 
+
+                     <% if(favorites.length == 0) {%>
+
+                        <h3 id="empty-list">Opss!! Nenhuma noticia adicionada a lista de favoritos :/</h3>
+                        
+                     <% } %> 
+                </div>
+         </div>
+        </div>
     </section>
 
 

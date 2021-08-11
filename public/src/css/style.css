@@ -6,7 +6,9 @@
     font-family: 'Oswald', sans-serif;
 }
 
-
+body{
+    background:#EAEAEA;
+}
 
 .header {
     width: 100%;
@@ -103,12 +105,14 @@ ul.show {
     position: relative;
 }
 
-.form-box-search i{
+.form-box-search button{
     cursor: pointer;
     color: white;
+    background-color: transparent;
+    border: none;
     position: absolute;
     font-size: 25px;
-    top: 18px;
+    top: 10px;
     left: 10px;
 }
 input::placeholder{
@@ -145,6 +149,8 @@ section.news-rate > .center {
     position: relative;
     width: 100%;
     max-height: 600px;
+    background-color :white;
+    border-radius:10px;
 
     
 }
@@ -224,7 +230,7 @@ section.news-rate > .center {
     top: 0;
     border-radius: 10px;
     width: 100%;
-    height: 99%;
+    height: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -279,10 +285,11 @@ section.outras-noticias h2{
 .box-ultimas-single .favorite{
     position: absolute;
     top: 0;
-    right: 0;
+    right: 15px;
 }
 .box-ultimas-single .favorite a{
     border: 0;
+    font-size: 25px;
     color: red;
 }
 
@@ -319,7 +326,7 @@ section.outras-noticias h2{
     padding-top: 50px !important;
 }
 
-.box-ultimas-single a{
+.box-ultimas-single a , .box-favorite-single a:not(.favorite-action a){
     text-transform: uppercase;
     color: #0AACDC;
     text-decoration: none;
@@ -383,11 +390,67 @@ footer p{
     color: white;
 }
 
+.favoritos-box > .center{
+    max-width: 1280px;
+}
 
+.box-favorite-single {
+    border-radius: 10px;
+    width: calc(100% / 3);
+    max-width: 342px;
+    position: relative ;
+    background-color : white;
+    margin-left: 1%;
+    margin-top:15px;
+}
 
+.favorite-action a{
+    color: red;
+    font-size: 25px;
+}
+
+.box-favorite-single img{
+    border-radius: 10px 10px 0 0;
+    max-height: 171px;
+    object-fit: contain;
+    width: 100%;}
+
+.favorite-action{
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+section.favoritos h2{
+    font-size : 64px ;
+    text-align: center;
+}
+
+.favorite-single-content > h2{
+    text-align: left !important;
+}
+
+.favoritos-box{
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom : 15px;
+    display: flex;
+}
+
+.favoritos-box #empty-list{
+    color : #828282;
+    width: 100%;
+    text-align: center;
+}
 @media screen and (max-width:768px)
 {   
-
+    .favoritos-box{
+        flex-wrap: wrap ;
+    }
+    .box-favorite-single{
+        width: 100%;
+        margin : 20px auto;
+    }
     .actions{
 
         top: 0px !important ;

@@ -66,6 +66,27 @@ app.get('/',(req,res) =>{
                  })
                 
                  Posts.find({favorite:true}).exec(function(err,favoritesNews){
+                     favoritesNews = favoritesNews.map(function(val){
+                         return{
+                             id:val.id,
+                             title: val.title,
+
+                             content: val.content,
+
+                             shortContent: val.content.substr(0,100),
+
+                             imagem: val.imagem,
+
+                             slug: val.slug,
+
+                             category: val.category,
+
+                             views: val.views,
+                             
+                             favorite:val.favorite
+
+                         }
+                     })
                     res.render('home', {posts:posts,PostsTop:postsTop,favorites:favoritesNews})
                 })
              })
@@ -110,7 +131,7 @@ app.post('/createNotice',(req,res) =>{
 })
 
 
-app.get('/:slug', (req,res) => {
+app.get('/categories/:category/:slug', (req,res) => {
     if(req.params.slug != 'favicon.ico' && req.params.slug!='favorite'){
         Posts.findOneAndUpdate({slug:req.params.slug},{$inc:{views:1}},{new:true},function(err,resposta){
             if(resposta!=null){
@@ -157,8 +178,8 @@ app.get('/:slug', (req,res) => {
     
 })
 
-app.get("/favorite/:slug", favoriteOption.favorite)
-app.get("/unfavorite/:slug",favoriteOption.unfavorite)
+app.get("/favorite/:id", favoriteOption.favorite)
+app.get("/unfavorite/:id",favoriteOption.unfavorite)
 
 app.listen(3000, (req,res)=>{
     console.log('Rodando')

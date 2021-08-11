@@ -20,13 +20,13 @@
     <header class="header">
         <div class="center">
             <div class="logo">
-                <a style="text-decoration: none;" href="/"><h2><span>Danki</span>News</h2></a>
+                <a style="text-decoration: none;" href="/"><h2><span>Portal</span>News</h2></a>
             </div>
             <div class="form-box-search">
-                <form action="/">
+                <form id="search-form" action="/">
                 
-                    <i class="fas fa-search"></i>
-                    <input name="search" type="text" placeholder="Buscar"  />
+                    <button onclick="return function(e){e.preventDefault();window.location.href=window.location.href+document.getElementById('search').value()}"  ><i class="fas fa-search"></i></button>
+                    <input id="search" name="search" type="text" placeholder="Buscar"  />
                 </form>
             </div>
             <nav class="menu-desktop">
